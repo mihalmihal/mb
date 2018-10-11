@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Middleware\CheckToken;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('hello', 'HelloController@index')->middleware(CheckToken::class);
